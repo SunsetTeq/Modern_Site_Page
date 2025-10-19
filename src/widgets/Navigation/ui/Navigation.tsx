@@ -3,7 +3,7 @@ import CloseIcon from '@assets/icons/close_burger.svg?react';
 import React from 'react';
 import { navList } from '@constants/constants';
 import { ButtonUniversal } from '@ui/ButtonUniversal';
-import { motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 export const Navigation = () => {
   const [open, setOpen] = React.useState(false);
@@ -20,21 +20,21 @@ export const Navigation = () => {
     },
   };
 
-  // элементы списка появляются справа
+  // элементы списка плавно появляются
   const itemVariants = {
-    closed: { opacity: 0, x: 10 },
-    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0 },
+    open: { opacity: 1 },
   };
 
   return (
     <>
-      {open && <div className="h-[129px]" />}
+      {open && <div className="min-h-[120px]" />}
 
       <nav
         aria-expanded={open}
         className={`${
-          open ? 'fixed min-h-[78px]' : 'sticky top-0 mb-[42px] min-h-[78px]'
-        } z-50 flex w-full rounded-3xl bg-white px-[20px] pt-[20px] pb-[22px] shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-shadow`}
+          open ? 'fixed min-h-[78px]' : 'sticky top-0 mb-[42px] max-h-[78px]'
+        } z-50 flex w-full rounded-b-3xl bg-white px-[20px] pt-[20px] pb-[22px] shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-shadow`}
       >
         <div className="flex w-full flex-col">
           <div className="flex max-h-[100px] items-start">
@@ -43,31 +43,62 @@ export const Navigation = () => {
             </div>
 
             <button
+              type="button"
               aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
               onClick={() => setOpen((v) => !v)}
-              className="relative grid h-10 w-10 cursor-pointer place-items-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+              className="relative mt-2.5 grid h-6 w-6 cursor-pointer place-items-center"
             >
-              {/* анимация иконок */}
-              <motion.span
-                className="absolute inset-0 grid place-items-center"
-                initial={false}
-                animate={
-                  open ? { opacity: 0, scale: 0 } : { opacity: 1, scale: 1 }
-                }
-                transition={{ duration: DURATION, ease: 'easeOut' }}
-              >
-                <OpenIcon />
-              </motion.span>
-              <motion.span
-                className="absolute inset-0 grid place-items-center"
-                initial={false}
-                animate={
-                  open ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }
-                }
-                transition={{ duration: DURATION, ease: 'easeOut' }}
-              >
-                <CloseIcon />
-              </motion.span>
+              <div className="relative h-6 w-6">
+                <AnimatePresence mode="wait" initial={false}>
+                  {open ? (
+                    <motion.span
+                      key="close"
+                      className="absolute inset-0 grid transform-gpu place-items-center will-change-transform"
+                      initial={{ opacity: 0, scale: 0.01 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{
+                        opacity: 0,
+                        scale: 0.01,
+                        transition: { duration: DURATION / 2, ease: 'easeIn' },
+                      }}
+                      transition={{ duration: DURATION / 2, ease: 'easeOut' }}
+                      style={{
+                        transformOrigin: '50% 50%',
+                        backfaceVisibility: 'hidden',
+                      }}
+                    >
+                      <CloseIcon
+                        className="h-6 w-6"
+                        vectorEffect="non-scaling-stroke"
+                        shapeRendering="geometricPrecision"
+                      />
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="open"
+                      className="absolute inset-0 grid transform-gpu place-items-center will-change-transform"
+                      initial={{ opacity: 0, scale: 0.01 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{
+                        opacity: 0,
+                        scale: 0.01,
+                        transition: { duration: DURATION / 2, ease: 'easeIn' },
+                      }}
+                      transition={{ duration: DURATION / 2, ease: 'easeOut' }}
+                      style={{
+                        transformOrigin: '50% 50%',
+                        backfaceVisibility: 'hidden',
+                      }}
+                    >
+                      <OpenIcon
+                        className="h-6 w-6"
+                        vectorEffect="non-scaling-stroke"
+                        shapeRendering="geometricPrecision"
+                      />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </div>
             </button>
           </div>
 
@@ -75,7 +106,7 @@ export const Navigation = () => {
             <motion.div
               key="menu"
               initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
+              animate={{ height: '400px', opacity: 1 }}
               transition={{ duration: DURATION, ease: 'easeOut' }}
               className="overflow-hidden"
             >
@@ -99,10 +130,10 @@ export const Navigation = () => {
 
               <motion.div
                 className="w-fit pt-2"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{
-                  duration: DURATION,
+                  duration: DURATION * 2,
                   ease: 'easeOut',
                   delay: LIST_DELAY,
                 }}
