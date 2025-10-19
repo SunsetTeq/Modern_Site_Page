@@ -1,5 +1,42 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-crimson: 'Crimson Text', serif;
+  --font-dmsans: 'DM Sans', system-ui, sans-serif;
+  --font-roboto-mono: 'Roboto Mono', ui-monospace, monospace;
+
+  --color-accent1: #485c11;
+  --color-accent2: #dfecc6;
+  --color-accent3: #8e9c78;
+  --color-accent4: #000000;
+  --color-accent5: #6f6f6f;
+  --color-accent6: #929292;
+  --color-divider: #e9e9e9;
+
+  --breakpoint-md: 49.938rem;
+}
+
+@layer components {
+  .text-display {
+    @apply font-crimson text-[4.75rem] leading-[0.85] font-normal tracking-[-0.0425em] md:text-[8.75rem] xl:text-[10rem];
+  }
+  .text-link {
+    @apply font-dmsans text-[0.875rem] font-bold tracking-[-0.025em];
+  }
+
+  .button {
+    @apply hover:bg-accent3 flex h-[48px] min-w-[127px] cursor-pointer items-center justify-center gap-1 rounded-4xl px-[22px] py-[14px] transition-colors duration-200 ease-linear;
+  }
+
+  .button--bright {
+    @apply bg-accent1 text-white;
+  }
+
+  .button--dim {
+    @apply bg-accent2 text-black hover:text-white;
+  }
+}
+
 html,
 body,
 #root {

@@ -5,7 +5,7 @@
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "types": ["vite/client"],
+    "types": ["vite/client", "vite-plugin-svgr/client"],
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -37,7 +37,6 @@
       "@constants/*": ["shared/config/constants/*"],
       "@hooks/*": ["shared/lib/hooks/*"],
       "@slices/*": ["shared/model/slices/*"],
-      // слово "types" зарезервировано :(
       "@type/*": ["shared/model/types/*"],
       "@ui/*": ["shared/ui/*"],
       "@assets/*": ["shared/assets/*"]
