@@ -28,13 +28,11 @@ export const Navigation = () => {
 
   return (
     <>
-      {open && <div className="min-h-[120px]" />}
+      <div className="min-h-[129px]" />
 
       <nav
         aria-expanded={open}
-        className={`${
-          open ? 'fixed min-h-[78px]' : 'sticky top-0 mb-[42px] max-h-[78px]'
-        } z-50 flex w-full rounded-b-3xl bg-white px-[20px] pt-[20px] pb-[22px] shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-shadow`}
+        className={`fixed z-50 flex min-h-[78px] w-full rounded-b-3xl bg-white px-[20px] pt-[20px] pb-[22px] shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-shadow`}
       >
         <div className="flex w-full flex-col">
           <div className="flex max-h-[100px] items-start">
