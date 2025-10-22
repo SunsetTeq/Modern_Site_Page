@@ -11,7 +11,9 @@ export const DefaultLayout = () => {
         {/* <Sidebar /> */}
         <div className={styles.container}>
           {isMobile && <Navigation />}
-          <div className="flex p-2 md:p-10">{<MainPage />}</div>
+          <div className="flex px-4 pt-2 pb-5 md:px-10 md:py-5">
+            {<MainPage />}
+          </div>
         </div>
       </div>
     </main>

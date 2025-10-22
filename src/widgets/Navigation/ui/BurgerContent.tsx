@@ -51,15 +51,18 @@ export const BurgerContent = ({
           >
             {navList.map((item) => (
               <motion.li
-                key={item}
+                key={item.id}
                 variants={ITEM_VARIANTS}
                 className="text-link transform-gpu will-change-transform"
               >
-                <div className="bg-divider h-[1px] w-full" />
+                <div className="divider-style" />
                 <div className="py-[30px]">
-                  <span className="hover:text-accent6 cursor-pointer transition-colors duration-200">
-                    {item}
-                  </span>
+                  <a
+                    href={`#${item.id}`}
+                    className="hover:text-accent6 cursor-pointer transition-colors duration-200"
+                  >
+                    {item.label}
+                  </a>
                 </div>
               </motion.li>
             ))}
