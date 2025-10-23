@@ -2,7 +2,7 @@ import { logoList } from '@pages/MainPage/config/constants';
 
 export const TrustedBy = () => {
   return (
-    <div className="my-[50px] flex-1">
+    <section className="trusted-by my-[50px] flex-1">
       <div className="flex flex-1 flex-col gap-[30px]">
         <span className="font-dmsans text-paragraph text-[0.938rem] font-normal tracking-[-0.05em]">
           Trusted by:
@@ -15,6 +15,6 @@ export const TrustedBy = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
