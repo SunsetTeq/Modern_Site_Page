@@ -6,6 +6,7 @@ import { RevealOnce } from '@ui/RevealOnce';
 import { TrustedBy } from './components/NavigationInPage/ui/TrustedBy';
 import { Benefits } from './components/NavigationInPage/ui/Benefits';
 import { ParalaxImageBlock } from './components/NavigationInPage/ui/ParalaxImageBlock';
+import { SeeTheBigPicture } from './components/NavigationInPage/ui/SeeTheBigPicture';
 
 export const MainPage = () => {
   const isMobile = useMediaQuery('(max-width: 799px)');
@@ -22,6 +23,9 @@ export const MainPage = () => {
       </RevealOnce>
       <RevealOnce>
         <Benefits />
+      </RevealOnce>
+      <RevealOnce>
+        <SeeTheBigPicture />
       </RevealOnce>
     </div>
   );
