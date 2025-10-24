@@ -11,6 +11,7 @@ import SpeachIcon from '@assets/icons/benefitsLogo/speach_icon.svg?react';
 import ChartIcon from '@assets/icons/benefitsLogo/chart_icon.svg?react';
 
 import bigPicture from '@assets/img/big_picture.jpg';
+import quoteImage from '@assets/img/kumar.jpg';
 
 export const logoList = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6];
 
@@ -52,4 +53,52 @@ export const seeTheBigPictureData = {
     'Your Global Snapshot: Get a quick, clear overview of your entire operation.',
   ],
   img: bigPicture,
+};
+
+export const specsData = {
+  title: 'Why Choose Area?',
+  description:
+    'You need a solution that keeps up. That’s why we developed Area. A developer-friendly approach to streamline your business. ',
+
+  quote: {
+    text: "“I was skeptical, but Area has completely transformed the way I manage my business. The data visualizations are so clear and intuitive, and the platform is so easy to use. I can't imagine running my company without it.”",
+    author: 'John Smith',
+    ps: 'Head of Data',
+    img: quoteImage,
+  },
+  cards: [
+    {
+      title: 'Area',
+      chars: [
+        { name: 'Ultra-fast browsing', flag: true },
+        { name: 'Advanced AI insights', flag: true },
+        { name: 'Seamless integration', flag: true },
+        { name: 'Advanced AI insights', flag: true },
+        { name: 'Ultra-fast browsing', flag: true },
+        { name: 'Full UTF-8 support', flag: true },
+      ],
+    },
+    {
+      title: 'WebSurge',
+      chars: [
+        { name: 'Fast browsing', flag: true },
+        { name: 'Basic AI recommendations', flag: true },
+        { name: 'Restricts customization', flag: true },
+        { name: 'Basic AI insights', flag: false },
+        { name: 'Fast browsing', flag: true },
+        { name: 'Potential display errors', flag: false },
+      ],
+    },
+    {
+      title: 'HyperView',
+      chars: [
+        { name: 'Moderate speeds', flag: false },
+        { name: 'No AI assistance', flag: false },
+        { name: 'Steep learning curve', flag: false },
+        { name: 'No AI assistance', flag: false },
+        { name: 'Moderate speeds', flag: false },
+        { name: 'Partial UTF-8 support', flag: false },
+      ],
+    },
+  ],
 };

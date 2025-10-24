@@ -4,6 +4,8 @@
   --font-crimson: 'Crimson Text', serif;
   --font-dmsans: 'DM Sans', system-ui, sans-serif;
   --font-roboto-mono: 'Roboto Mono', ui-monospace, monospace;
+  --font-rethink-sans: 'Rethink Sans', system-ui, sans-serif;
+  --font-reddit-mono: 'Reddit Mono', ui-monospace, monospace;
 
   --color-accent1: #485c11;
   --color-accent2: #dfecc6;
@@ -27,6 +29,10 @@
 
   .text-heading3 {
     @apply font-crimson text-[1.125rem] font-normal tracking-[-0.03em];
+  }
+
+  .text-heading2 {
+    @apply font-crimson text-[2rem] font-normal tracking-[-0.04em] md:text-[2.5rem];
   }
 
   .text-paragraph-style {
@@ -63,6 +69,7 @@ body,
 #root {
   height: 100%;
   min-height: 100dvh;
+  overflow-x: hidden;
 }
 
 body {
