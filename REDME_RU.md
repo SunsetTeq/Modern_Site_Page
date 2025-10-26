@@ -1,5 +1,3 @@
----
-
 ### `README_RU.md` (RU)
 
 # Area Landing Page
@@ -78,4 +76,3 @@ docker run -p 8080:80 area-landing
 | **src/shared** | Общие ресурсы: ассеты, конфигурации, хуки, утилиты и UI‑примитивы |
 | **src/shared/config/constants** | Конфигурации с данными для страницы |
 | **src/shared/assets** | Изображения и иконки, в том числе скриншоты для README |
----
