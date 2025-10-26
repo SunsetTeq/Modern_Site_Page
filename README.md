@@ -4,6 +4,8 @@
 
 **Area** is a modern, responsive landing page built with React, TypeScript and Vite.  The goal of this pet project is to practise component composition, animation and layout techniques by recreating a marketing page for a fictional analytics platform.  The page showcases interactive sections, smooth scrolling navigation, parallax effects and responsive design.  While it is inspired by a commercial product, this repository exists for educational purposes and is not affiliated with any real company.
 
+Link to [Github pages](https://sunsetteq.github.io/area-landing-page/)
+
 ## Table of contents
 - [Overview](#overview)
 - [Features](#features)
