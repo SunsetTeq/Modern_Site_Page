@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+### `README_RU.md` (RU)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Area Landing Page
 
-Currently, two official plugins are available:
+**Area** is a modern, responsive landing page built with React, TypeScript and Vite.  The goal of this pet project is to practise component composition, animation and layout techniques by recreating a marketing page for a fictional analytics platform.  The page showcases interactive sections, smooth scrolling navigation, parallax effects and responsive design.  While it is inspired by a commercial product, this repository exists for educational purposes and is not affiliated with any real company.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of contents
+- [Overview](#overview)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Tech stack](#tech-stack)
+- [Getting started](#getting-started)
+- [Project structure](#project-structure)
 
-## React Compiler
+## Overview
+The application consists of a single **MainPage** broken down into smaller widgets (header, benefits, specifications, how‑to, contact) following a feature‑sliced design.  Content for each section is defined in configuration files rather than being hard‑coded in components.  Navigation links jump between the sections using anchor IDs and remain fixed on larger screens.  Animations are implemented with **Framer Motion**, and styling is handled by **Tailwind CSS**.  Module resolution uses custom aliases configured in `vite.config.ts` to keep imports clean, for example `@app` for the root application layer and `@ui` for reusable UI primitives
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This landing page design was inspired by the freely available Modern Product Launch template from the Figma Community.  The goal of this project is to recreate that template’s look and feel while practising modern front‑end development.  You can see the original design here: [Modern Product Launch on Figma](https://www.figma.com/community/file/1487309170684591074/modern-product-launch)
 
-## Expanding the ESLint configuration
+## Features
+- **Smooth scrolling navigation** — a fixed navigation bar on desktop scrolls to each section using hash links.  On smaller screens, navigation collapses into a burger menu and scrolls with the page.
+- **Responsive design & animations** — layouts adapt across mobile, tablet and desktop breakpoints.  Components fade into view or slide as the user scrolls, thanks to framer‑motion.  Similar projects use the same libraries to achieve interactive animations and responsive design.
+- **Type safety** — the project uses TypeScript to catch errors at compile time and improve the development experience.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Screenshots
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Desktop | Tablet | Mobile |
+|---|---|--- |
+| ![Desktop](src/shared/assets/screens/desktop.png) |![Tablet](src/shared/assets/screens/tablet.png) | ![Mobile](src/shared/assets/screens/mobile.png) |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech stack
+The project leverages modern front‑end tools and libraries:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Tool | Purpose |
+|---|---|
+| **React 19** | Component library for building the user interface |
+| **TypeScript** | Provides static typing for safer development |
+| **Vite** | Lightning‑fast bundler and dev server |
+| **Tailwind CSS** | Utility‑first CSS framework for rapid styling |
+| **Framer Motion** | Declarative animation library for React |
+| **ESLint & Prettier** | Code linting and formatting |
+| **vite-plugin-svgr** | Enables importing SVGs as React components |
+| **Docker** | Multi‑stage build uses a Node 20‑alpine image to compile the app and an Nginx 1.27‑alpine image to serve the static files |
+
+Aliases defined in the Vite config allow neat, relative‑free imports, such as @app → src/app, @pages → src/pages, @widgets → src/widgets and more 
+
+## Getting started
+
+```bash
+git clone https://github.com/SunsetTeq/Modern_Site_Page.git
+cd Modern_Site_Page
+
+# установка
+npm install
+# или
+yarn install
+
+# запуск dev
+npm run dev
+# или
+yarn dev
 ```
+## Running with Docker
+```bash
+# build the image (will be tagged as area-landing)
+docker build -t area-landing .
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# run the container on port 8080
+docker run -p 8080:80 area-landing
 ```
+Visit http://localhost:8080 in your browser to view the site.  The Nginx configuration caches static assets and falls back to index.html for all routes, making it suitable for single‑page applications
+
+## Project structure
+The project follows a feature‑sliced architecture.  Major folders and their purpose include:
+| Directory | Description |
+|---|---|
+| **src/app** | Sets up global providers such as styles and defines the root component |
+| **src/pages** | Top‑level routes; currently contains MainPage which composes all sections |
+| **src/widgets** | Larger UI blocks (navigation bar, hero section, benefit cards, specification table, etc.) |
+| **src/shared** | Shared resources: assets, configuration, hooks, UI primitives and utility functions |
+| **src/shared/config/constants** | Contains arrays and objects that hold content for the page |
+| **src/shared/assets** | Images and icons used throughout the site, including screenshot assets for the README |
+
+The Vite alias configuration maps these folders to short prefixes, making imports cleaner
