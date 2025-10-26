@@ -1,1 +1,1 @@
-export const githubRepo = 'https://github.com/SunsetTeq/Modern_Site_Page';
+export const githubRepo = 'https://github.com/SunsetTeq/area-landing-page';
