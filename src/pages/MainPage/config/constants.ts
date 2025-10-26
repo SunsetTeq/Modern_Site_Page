@@ -12,6 +12,7 @@ import ChartIcon from '@assets/icons/benefitsLogo/chart_icon.svg?react';
 
 import bigPicture from '@assets/img/big_picture.jpg';
 import quoteImage from '@assets/img/kumar.jpg';
+import showToImage from '@assets/img/show_to.jpg';
 
 export const logoList = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6];
 
@@ -101,4 +102,30 @@ export const specsData = {
       ],
     },
   ],
+};
+
+export const showTo = {
+  title: 'Map Your Success',
+  cards: [
+    {
+      title: 'Get Started',
+      description:
+        'With our intuitive setup, you’re up and running in minutes.',
+    },
+    {
+      title: 'Customize and Configure',
+      description: 'Adapt Area to your specific requirements and preferences.',
+    },
+    {
+      title: 'Grow Your Business',
+      description: 'Make informed decisions to exceed your goals.',
+    },
+  ],
+  img: showToImage,
+};
+
+export const connectData = {
+  title: 'Connect with us',
+  description:
+    'Schedule a quick call to learn how Area can turn your regional data into a powerful advantage.',
 };

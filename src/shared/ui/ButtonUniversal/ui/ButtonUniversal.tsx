@@ -1,4 +1,5 @@
 import LinkButton from '@assets/icons/link_button.svg?react';
+import { githubRepo } from '@constants/Links';
 
 export const ButtonUniversal = ({
   title,
@@ -10,7 +11,7 @@ export const ButtonUniversal = ({
   return (
     <a
       className={`button group ${isBright ? 'button--bright' : 'button--dim'}`}
-      href={'https://google.com'}
+      href={githubRepo}
       target="_blank"
     >
       {title}

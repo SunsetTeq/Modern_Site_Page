@@ -9,6 +9,8 @@ import { ParalaxImageBlock } from './components/NavigationInPage/ui/ParalaxImage
 import { SeeTheBigPicture } from './components/NavigationInPage/ui/SeeTheBigPicture';
 import { Specifications } from './components/NavigationInPage/ui/Specifications';
 import { SpecImageBlock } from './components/NavigationInPage/ui/SpecImageBlock';
+import { HowTo } from './components/NavigationInPage/ui/HowTo';
+import { Connect } from './components/NavigationInPage/ui/Connect';
 
 export const MainPage = () => {
   const isMobile = useMediaQuery('(max-width: 799px)');
@@ -35,6 +37,12 @@ export const MainPage = () => {
       </RevealOnce>
       <RevealOnce>
         <SpecImageBlock />
+      </RevealOnce>
+      <RevealOnce>
+        <HowTo />
+      </RevealOnce>
+      <RevealOnce>
+        <Connect />
       </RevealOnce>
     </div>
   );

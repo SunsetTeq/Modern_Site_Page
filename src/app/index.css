@@ -23,6 +23,10 @@
     @apply font-crimson text-[4.75rem] leading-[0.85] font-normal tracking-[-0.0425em] md:text-[8.75rem] md:tracking-[-0.05em] xl:text-[10rem];
   }
 
+  .text-display-statistics {
+    @apply font-dmsans text-[4rem] font-normal tracking-[-0.04em] md:text-[5rem];
+  }
+
   .text-heading1 {
     @apply font-crimson text-[3.125rem] font-normal tracking-[-0.03em] md:text-[3.375rem] xl:text-[3.75rem];
   }
@@ -83,4 +87,25 @@ body {
 
 .trusted-by {
   isolation: isolate;
+}
+
+/* скрыть контейнеры */
+html,
+body {
+  -ms-overflow-style: none; /* IE/старый Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Глобально для Chrome/Safari/новых Edge */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Вложенные контейнеры со скроллбаром: */
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
 }

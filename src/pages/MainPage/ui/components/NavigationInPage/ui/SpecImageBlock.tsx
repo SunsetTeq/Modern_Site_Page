@@ -15,12 +15,16 @@ export const SpecImageBlock = () => {
       <div className="flex-1">
         <div className="divider-style" />
         <div className="flex min-w-0 flex-col items-start justify-center gap-[50px] pt-[42px] xl:py-[140px] xl:pl-[50px]">
-          <h3 className="text-heading2">{specsData.quote.text}</h3>
+          <h3 className="text-heading2 leading-[1.1] xl:leading-[1.05]">
+            {specsData.quote.text}
+          </h3>
           <div>
-            <p className="text-paragraph-style text-black">
-              {specsData.quote.author}
-            </p>
-            <p className="text-caption">{specsData.quote.ps}</p>
+            <div className="flex gap-2 xl:flex-col">
+              <p className="text-paragraph-style text-black">
+                {specsData.quote.author}
+              </p>
+              <p className="text-caption">{specsData.quote.ps}</p>
+            </div>
           </div>
         </div>
       </div>
