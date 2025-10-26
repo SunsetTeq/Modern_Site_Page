@@ -6,6 +6,8 @@
 
 Дизайн основан на бесплатном шаблоне **Modern Product Launch** из сообщества Figma. Цель — воспроизвести внешний вид, структуру шаблона и прокачать навыки создания web приложений с использованием новых для меня технологий. Макет: [Modern Product Launch on Figma](https://www.figma.com/community/file/1487309170684591074/modern-product-launch)
 
+Ссылка на [Github pages](https://sunsetteq.github.io/area-landing-page/)
+
 ## Содержание
 - [Обзор](#обзор)
 - [Функции](#функции)
